@@ -11,6 +11,7 @@ import android.widget.TextView;
 
 import com.abt.activity.R;
 import com.abt.activity.static_variable.StaticModel;
+import com.abt.activity.static_variable.leak.LeakedActivity;
 import com.orhanobut.logger.Logger;
 
 public class MainActivity extends AppCompatActivity {
@@ -39,8 +40,9 @@ public class MainActivity extends AppCompatActivity {
         jump.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                MainActivity2.startActivity(MainActivity.this);
-                MainActivity.this.finish();
+                LeakedActivity.startActivity(MainActivity.this);
+                /*MainActivity2.startActivity(MainActivity.this);
+                MainActivity.this.finish();*/
             }
         });
     }

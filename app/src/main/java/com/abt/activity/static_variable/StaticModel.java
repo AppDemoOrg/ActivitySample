@@ -11,7 +11,7 @@ public class StaticModel {
     }
 
     public static class InnerClass {
-        public static int staticNumOfInnerClass = 0;
+        public static int staticNum = 0;
         static {
             Logger.d("the static field of InnerClass has already be loaded: " + num);
         }

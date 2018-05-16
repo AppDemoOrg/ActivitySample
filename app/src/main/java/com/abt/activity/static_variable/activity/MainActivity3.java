@@ -22,7 +22,7 @@ public class MainActivity3 extends AppCompatActivity {
 
         final TextView tipsView = findViewById(R.id.textView);
         String tips = MainActivity3.class.getSimpleName()+" The Number Is: ";
-        tipsView.setText(tips + StaticModel.InnerClass.staticNumOfInnerClass);
+        tipsView.setText(tips + StaticModel.InnerClass.staticNum);
 
         Button addBtn =  findViewById(R.id.button_add);
         addBtn.setClickable(false);
@@ -48,4 +48,9 @@ public class MainActivity3 extends AppCompatActivity {
         Logger.d(" onDestroy");
     }
 
+    @Override
+    protected void finalize() throws Throwable {
+        super.finalize();
+        Logger.d("LeakedActivity has been recycled!!!");
+    }
 }

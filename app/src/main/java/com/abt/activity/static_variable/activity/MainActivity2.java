@@ -22,14 +22,15 @@ public class MainActivity2 extends AppCompatActivity {
 
         final String tips = MainActivity2.class.getSimpleName()+" The Number Is: ";
         final TextView tipsView = findViewById(R.id.textView);
-        tipsView.setText(tips + StaticModel.InnerClass.staticNumOfInnerClass);
+        tipsView.setText(tips + StaticModel.InnerClass.staticNum);
 
         Button addBtn = findViewById(R.id.button_add);
         addBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                tipsView.setText(tips + (++StaticModel.InnerClass.staticNumOfInnerClass));
-                Logger.d("the StaticModel.InnerClass.staticNumOfInnerClass num is: " + StaticModel.InnerClass.staticNumOfInnerClass);
+                tipsView.setText(tips + (++StaticModel.InnerClass.staticNum));
+                Logger.d("the StaticModel.InnerClass.staticNum num is: "
+                        + StaticModel.InnerClass.staticNum);
             }
         });
 
@@ -52,5 +53,11 @@ public class MainActivity2 extends AppCompatActivity {
     protected void onDestroy() {
         super.onDestroy();
         Logger.d(" onDestroy");
+    }
+
+    @Override
+    protected void finalize() throws Throwable {
+        super.finalize();
+        Logger.d("LeakedActivity has been recycled!!!");
     }
 }

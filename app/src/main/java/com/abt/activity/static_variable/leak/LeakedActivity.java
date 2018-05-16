@@ -10,7 +10,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.widget.TextView;
 
 import com.abt.activity.R;
-import com.abt.activity.static_variable.activity.MainActivity;
 import com.orhanobut.logger.Logger;
 
 /**

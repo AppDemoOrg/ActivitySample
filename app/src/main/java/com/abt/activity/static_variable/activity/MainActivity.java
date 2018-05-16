@@ -11,7 +11,6 @@ import android.widget.TextView;
 
 import com.abt.activity.R;
 import com.abt.activity.static_variable.StaticModel;
-import com.abt.activity.static_variable.leak.LeakedActivity;
 import com.orhanobut.logger.Logger;
 
 public class MainActivity extends AppCompatActivity {
@@ -23,16 +22,21 @@ public class MainActivity extends AppCompatActivity {
         Logger.d(" onCreate");
 
         final TextView tipsView = findViewById(R.id.textView);
-        final String tips = getString(R.string.tips_txt_hint, StaticModel.InnerClass.staticNumOfInnerClass+"", MainActivity.class.getSimpleName());
+        final String tips = getString(R.string.tips_txt_hint,
+                StaticModel.InnerClass.staticNum +"",
+                MainActivity.class.getSimpleName());
         tipsView.setText(Html.fromHtml(tips));
 
         Button addBtn = findViewById(R.id.button_add);
         addBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String tmp = getString(R.string.tips_txt_hint, (++StaticModel.InnerClass.staticNumOfInnerClass)+"", MainActivity.class.getSimpleName());
+                String tmp = getString(R.string.tips_txt_hint,
+                        (++StaticModel.InnerClass.staticNum)+"",
+                        MainActivity.class.getSimpleName());
                 tipsView.setText(Html.fromHtml(tmp));
-                Logger.d("the StaticModel.InnerClass.staticNumOfInnerClass num is: " + StaticModel.InnerClass.staticNumOfInnerClass);
+                Logger.d("the StaticModel.InnerClass.staticNum num is: "
+                        + StaticModel.InnerClass.staticNum);
             }
         });
 
@@ -40,9 +44,9 @@ public class MainActivity extends AppCompatActivity {
         jump.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                LeakedActivity.startActivity(MainActivity.this);
-                /*MainActivity2.startActivity(MainActivity.this);
-                MainActivity.this.finish();*/
+                //LeakedActivity.startActivity(MainActivity.this);
+                MainActivity2.startActivity(MainActivity.this);
+                //MainActivity.this.finish();
             }
         });
     }
@@ -56,5 +60,11 @@ public class MainActivity extends AppCompatActivity {
     protected void onDestroy() {
         super.onDestroy();
         Logger.d(" onDestroy");
+    }
+
+    @Override
+    protected void finalize() throws Throwable {
+        super.finalize();
+        Logger.d("LeakedActivity has been recycled!!!");
     }
 }

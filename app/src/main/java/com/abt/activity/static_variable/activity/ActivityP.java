@@ -12,7 +12,7 @@ import com.abt.activity.R;
 import com.abt.activity.static_variable.StaticModel;
 import com.orhanobut.logger.Logger;
 
-public class MainActivity3 extends AppCompatActivity {
+public class ActivityP extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -20,25 +20,32 @@ public class MainActivity3 extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         Logger.d(" onCreate");
 
+        final String tips = ActivityP.class.getSimpleName()+" The Number Is: ";
         final TextView tipsView = findViewById(R.id.textView);
-        String tips = MainActivity3.class.getSimpleName()+" The Number Is: ";
         tipsView.setText(tips + StaticModel.InnerClass.staticNum);
 
-        Button addBtn =  findViewById(R.id.button_add);
-        addBtn.setClickable(false);
+        Button addBtn = findViewById(R.id.button_add);
+        addBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                tipsView.setText(tips + (++StaticModel.InnerClass.staticNum));
+                Logger.d("the StaticModel.InnerClass.staticNum num is: "
+                        + StaticModel.InnerClass.staticNum);
+            }
+        });
 
         Button jumpBtn =  findViewById(R.id.button_jump);
         jumpBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                MainActivity.startActivity(MainActivity3.this);
-                MainActivity3.this.finish();
+                ActivityQ.startActivity(ActivityP.this);
+                ActivityP.this.finish();
             }
         });
     }
 
     public static final void startActivity(Context context) {
-        final Intent intent = new Intent(context, MainActivity3.class);
+        final Intent intent = new Intent(context, ActivityP.class);
         context.startActivity(intent);
     }
 

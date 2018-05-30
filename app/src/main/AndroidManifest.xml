@@ -11,7 +11,7 @@
         android:name=".SampleApp"
         android:theme="@style/AppTheme">
 
-        <activity android:name=".static_variable.activity.MainActivity"
+        <activity android:name=".static_variable.activity.ActivityO"
             android:launchMode="singleInstance"
             android:configChanges="orientation|screenSize">
             <intent-filter>
@@ -20,7 +20,7 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".static_variable.activity.MainActivity2"
+        <activity android:name=".static_variable.activity.ActivityP"
             android:launchMode="singleInstance"
             android:configChanges="orientation|screenSize">
             <intent-filter>
@@ -29,7 +29,7 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".static_variable.activity.MainActivity3"
+        <activity android:name=".static_variable.activity.ActivityQ"
             android:launchMode="singleInstance"
             android:configChanges="orientation|screenSize">
             <intent-filter>

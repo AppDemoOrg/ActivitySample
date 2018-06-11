@@ -51,12 +51,25 @@
             android:theme="@style/FullscreenTheme" />
         <activity
             android:name=".studio_byo.LoginActivity"
-            android:label="@string/title_activity_login">
+            android:label="@string/title_activity_login" />
+        <activity
+            android:name=".studio_byo.ItemListActivity"
+            android:label="@string/title_item_list"
+            android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+        <activity
+            android:name=".studio_byo.ItemDetailActivity"
+            android:label="@string/title_item_detail"
+            android:parentActivityName=".studio_byo.ItemListActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.abt.activity.studio_byo.ItemListActivity" />
         </activity>
     </application>
 

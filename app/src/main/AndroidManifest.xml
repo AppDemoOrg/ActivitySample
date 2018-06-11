@@ -14,6 +14,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
 
+
         <activity android:name=".static_variable.leak.LeakedActivity" />
         <activity
             android:name=".static_variable.activity.ActivityO"
@@ -22,14 +23,11 @@
         <activity
             android:name=".static_variable.activity.ActivityP"
             android:configChanges="orientation|screenSize"
-            android:launchMode="singleInstance">
-        </activity>
+            android:launchMode="singleInstance"></activity>
         <activity
             android:name=".static_variable.activity.ActivityQ"
             android:configChanges="orientation|screenSize"
-            android:launchMode="singleInstance">
-        </activity>
-
+            android:launchMode="singleInstance"></activity>
 
 
         <activity android:name=".activity_jump.ActivityA" />
@@ -38,21 +36,21 @@
         <activity android:name=".activity_jump.ActivityD" />
 
 
-
         <activity android:name=".studio_byo.GalleryActivity" />
         <activity
             android:name=".studio_byo.BasicActivity"
             android:label="@string/title_activity_basic"
-            android:theme="@style/AppTheme.NoActionBar" >
-        </activity>
+            android:theme="@style/AppTheme.NoActionBar"></activity>
         <activity
             android:name=".studio_byo.BottomNavigationActivity"
             android:label="@string/title_activity_bottom_navigation">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".studio_byo.EmptyActivity"></activity>
     </application>
 
 </manifest>

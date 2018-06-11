@@ -2,52 +2,57 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.abt.activity">
 
-    <!--获取Activity任务栈权限-->
+    <!-- 获取Activity任务栈权限 -->
     <uses-permission android:name="android.permission.GET_TASKS" />
 
     <application
+        android:name=".SampleApp"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:name=".SampleApp"
         android:theme="@style/AppTheme">
 
-        <activity android:name=".static_variable.activity.ActivityO"
-            android:launchMode="singleInstance"
-            android:configChanges="orientation|screenSize">
-        </activity>
-
-        <activity android:name=".static_variable.activity.ActivityP"
-            android:launchMode="singleInstance"
-            android:configChanges="orientation|screenSize">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.DEFAULT" />
-            </intent-filter>
-        </activity>
-
-        <activity android:name=".static_variable.activity.ActivityQ"
-            android:launchMode="singleInstance"
-            android:configChanges="orientation|screenSize">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.DEFAULT" />
-            </intent-filter>
-        </activity>
-
         <activity android:name=".static_variable.leak.LeakedActivity" />
+        <activity
+            android:name=".static_variable.activity.ActivityO"
+            android:configChanges="orientation|screenSize"
+            android:launchMode="singleInstance" />
+        <activity
+            android:name=".static_variable.activity.ActivityP"
+            android:configChanges="orientation|screenSize"
+            android:launchMode="singleInstance">
+        </activity>
+        <activity
+            android:name=".static_variable.activity.ActivityQ"
+            android:configChanges="orientation|screenSize"
+            android:launchMode="singleInstance">
+        </activity>
 
-        <activity android:name=".activity_jump.ActivityA" >
+
+
+        <activity android:name=".activity_jump.ActivityA" />
+        <activity android:name=".activity_jump.ActivityB" />
+        <activity android:name=".activity_jump.ActivityC" />
+        <activity android:name=".activity_jump.ActivityD" />
+
+
+
+        <activity android:name=".studio_byo.GalleryActivity" />
+        <activity
+            android:name=".studio_byo.BasicActivity"
+            android:label="@string/title_activity_basic"
+            android:theme="@style/AppTheme.NoActionBar" >
+        </activity>
+        <activity
+            android:name=".studio_byo.BottomNavigationActivity"
+            android:label="@string/title_activity_bottom_navigation">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".activity_jump.ActivityB" />
-        <activity android:name=".activity_jump.ActivityC" />
-        <activity android:name=".activity_jump.ActivityD" />
     </application>
 
 </manifest>
